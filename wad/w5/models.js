@@ -4,7 +4,9 @@ const MusicSchema = mongoose.Schema({
     Songname: String,
     Film: String ,
     Music_director: String,
-    singer: String
+    singer: String,
+    actor:String,
+    actress:String
 }, {
     timestamps: true
 });
