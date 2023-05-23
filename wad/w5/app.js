@@ -30,7 +30,7 @@ app.post("/addsong", (req, res) => {
     var myData = new Music(req.body);
     myData.save()
     .then(item => {
-    res.send("item saved to database");
+        res.redirect("/getSongs")
     })
     .catch(err => {
     res.status(400).send("unable to save to database");

@@ -26,6 +26,7 @@ app.use("/css", express.static(path.resolve(__dirname, "static/css")));
 app.get("/", (req, res) => {
   res.render("index");
 });
+
 app.post("/addmarks", (req, res) => {
   var myData = new Student(req.body);
   myData
@@ -38,6 +39,7 @@ app.post("/addmarks", (req, res) => {
       res.status(400).send("unable to save to database");
     });
 });
+
 app.get("/getMarks", (req, res) => {
   console.log(req.query);
   Student.find(req.query)
@@ -48,6 +50,7 @@ app.get("/getMarks", (req, res) => {
       res.json({ message: "err" });
     });
 });
+
 app.get("/dsbdaGreaterThan20", (req, res) => {
   Student.find({ dsbda_marks: { $gt: 20 } })
     .then((student) => {
@@ -56,6 +59,19 @@ app.get("/dsbdaGreaterThan20", (req, res) => {
     .catch((err) => {
       res.json({ message: "err" });
     });
+});
+
+
+
+app.get("/count", (req, res) => {
+ 
+  Student.countDocuments().then((count_documents) => {
+    // console.log(count_documents);
+    res.json({ number_of_documents:count_documents });
+  }).catch((err) => {
+    console.log(err.Message);
+  })
+      
 });
 
 app.get("/wadccGreaterThan40", (req, res) => {
@@ -68,12 +84,25 @@ app.get("/wadccGreaterThan40", (req, res) => {
     });
 });
 
+app.get("/allgt25", (req, res) => {
+  Student.find({ wad_marks: { $gt: 25 }, cc_marks: { $gt: 25 },cns_marks: { $gt: 25 },ai_marks: { $gt: 25 } })
+    .then((student) => {
+      res.render("table", { student: student });
+    })
+    .catch((err) => {
+      res.json({ message: "err" });
+    });
+});
+
+
+
 app.post("/deleteStudent/:id", (req, res) => {
   Student.findByIdAndDelete(req.params.id).then((student) => {
     console.log("Deleted Successfully");
     res.redirect("/getMarks");
   });
 });
+
 
 app.listen(3000, () => {
   console.log("Server is listening on port 3000");
