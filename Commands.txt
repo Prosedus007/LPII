@@ -1,0 +1,33 @@
+CC-
+1 to 9 : python3 dev_appserver.py file_location
+
+10 to 11 : Receiver commands:
+
+	   1. sudo apt list --installed | grep openssh_server
+	   2. sudo service ssh status
+	   3. sudo apt install openssh_server
+	   Sender commands:
+
+	   4. scp file_name.txt usernameofother@IPOfother:destination location
+
+SaleForce : setup : Schema Build -> sharing setting -> tab -> app manager -> new lighitining app
+	    To edit : Object manager
+
+AWS Amplify : AWS Amplify->New App->Host WebApp->GitHub->select Repository-> Allow->Save and Deploy
+
+EC2 : Ec2->Launch Instances->create key pair->launch instances->go to instances->click checkbox & connect->SSH client
+      ->copy the link->past it in terminal where .pem file is located.
+
+WAD- 	Install:
+	1. NodeJS - 1. sudo apt install node.js
+     	2. Angular - 1. npm install -g @angular/cli
+
+	Angular App creation:
+	1. ng new appName
+	Run :
+	1. ng serve --open
+
+	Express install:
+	1. npm i express
+	Express Run:
+	1. node app.js

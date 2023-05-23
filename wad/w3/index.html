@@ -1,20 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ajax Code</title>
+    <title>Statement - 3 AJAX - By Harshvardhan</title>
 </head>
+
 <body>
-    <form>
-        <input id="name" type="text" placeholder="Enter Name" > 
-        <input id="phone_no" type="number" placeholder="Enter phone no" > 
-        <input id="Div" type="email" placeholder="Enter Email" > 
-    
-        <input type="button" id="btn"  value="Submit">
-     </form>
-    
+    <center style="margin-top: 5rem;">
+        <h1>User Registration</h1>
+        <form id="registrationForm">
+            <input required type="text" id="name" placeholder="Enter Name">
+            <br><br>
+            <input required type="number" maxlength="10" id="phone" placeholder="Enter Mobile Number">
+            <br><br>
+            <input required type="text" id="div" placeholder="Enter Your Division">
+            <br><br>
+            <button id="btn">Submit</button>
+        </form>
+    </center>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="./main.js"></script>
 </body>
-<script src="./main.js"></script>
+
 </html>
